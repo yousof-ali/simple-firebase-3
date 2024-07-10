@@ -1,19 +1,33 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { authContext } from "../../provider/Authprovider";
 
 
 const Register = () => {
+    const {creatUser} = useContext(authContext);
+    console.log(creatUser)
     const handleregister = e => {
         e.preventDefault();
         const userEmail = e.target.email.value;
         const userPassword = e.target.password.value;
         const userName = e.target.name.value
         console.log(userEmail, userPassword,userName)
+
+        creatUser(userEmail,userPassword)
+        .then(result=>{
+            console.log(result.user);
+        })
+        .catch((error)=>{
+            console.log(error.message);
+        })
+
+
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
+                    <h1 className="text-5xl font-bold">Register now</h1>
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <div className="card-body">
