@@ -10,7 +10,7 @@ const Register = () => {
         e.preventDefault();
         const userEmail = e.target.email.value;
         const userPassword = e.target.password.value;
-        const userName = e.target.name.value
+        const userName = e.target.name.value;
         console.log(userEmail, userPassword,userName)
 
         creatUser(userEmail,userPassword)

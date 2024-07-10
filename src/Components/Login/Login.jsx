@@ -12,6 +12,7 @@ const Login = () => {
         const userPassword = e.target.password.value;
         console.log(userEmail,userPassword);
 
+
         loginUser(userEmail,userPassword)
         .then(result=>{
             console.log("success!");
